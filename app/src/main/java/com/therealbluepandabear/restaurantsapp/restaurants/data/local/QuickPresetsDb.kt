@@ -1,11 +1,11 @@
-package com.therealbluepandabear.restaurantsapp.restaurants.data.local.quickpresets
+package com.therealbluepandabear.restaurantsapp.restaurants.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
     entities = [QuickPreset::class],
-    version = 1,
+    version = 4,
     exportSchema = false
 )
 abstract class QuickPresetsDb : RoomDatabase() {

@@ -15,12 +15,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.therealbluepandabear.restaurantsapp.restaurants.presentation.details.RestaurantDetailsScreen
 import com.therealbluepandabear.restaurantsapp.restaurants.presentation.list.RestaurantsScreen
-import com.therealbluepandabear.restaurantsapp.restaurants.presentation.list.RestaurantsScreenState
 import com.therealbluepandabear.restaurantsapp.restaurants.presentation.list.RestaurantsViewModel
-import com.therealbluepandabear.restaurantsapp.restaurants.presentation.new.NewScreen
-import com.therealbluepandabear.restaurantsapp.restaurants.presentation.new.NewScreenViewModel
 import com.therealbluepandabear.restaurantsapp.ui.theme.RestaurantsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,7 +41,7 @@ class MainActivity : ComponentActivity() {
     private fun RestaurantsApp() {
         val navController = rememberNavController()
 
-        NavHost(navController, startDestination = "new") {
+        NavHost(navController, startDestination = "restaurants") {
             composable(route = "restaurants") {
                 val viewModel: RestaurantsViewModel = hiltViewModel()
 
@@ -54,31 +50,10 @@ class MainActivity : ComponentActivity() {
                     onItemClick = { id ->
                         navController.navigate("restaurants/$id")
                     },
-                    onFavoriteClick = { id, oldValue ->
-                        viewModel.toggleFavorite(id, oldValue)
+                    onFavoriteClick = { _, _ ->
+
                     }
                 )
-            }
-
-            composable(
-                route = "restaurants/{restaurant_id}",
-                arguments = listOf(navArgument("restaurant_id") {
-                    type = NavType.IntType
-                })
-            ) {
-                RestaurantDetailsScreen()
-            }
-
-            composable(route = "new") {
-                val viewModel: NewScreenViewModel = hiltViewModel()
-                val state = viewModel.state.value
-
-                NewScreen(
-                    viewModel,
-                    state
-                ) { width, height ->
-                    navController.navigate("draw")
-                }
             }
         }
     }

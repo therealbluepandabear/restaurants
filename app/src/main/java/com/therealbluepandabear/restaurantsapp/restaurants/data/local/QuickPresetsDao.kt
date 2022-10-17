@@ -1,4 +1,4 @@
-package com.therealbluepandabear.restaurantsapp.restaurants.data.local.quickpresets
+package com.therealbluepandabear.restaurantsapp.restaurants.data.local
 
 import androidx.room.*
 
