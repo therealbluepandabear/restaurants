@@ -9,14 +9,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
+import com.therealbluepandabear.restaurantsapp.restaurants.presentation.list.NewScreenViewModel
 import com.therealbluepandabear.restaurantsapp.restaurants.presentation.list.RestaurantsScreen
-import com.therealbluepandabear.restaurantsapp.restaurants.presentation.list.RestaurantsViewModel
 import com.therealbluepandabear.restaurantsapp.ui.theme.RestaurantsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -43,7 +40,7 @@ class MainActivity : ComponentActivity() {
 
         NavHost(navController, startDestination = "restaurants") {
             composable(route = "restaurants") {
-                val viewModel: RestaurantsViewModel = hiltViewModel()
+                val viewModel: NewScreenViewModel = hiltViewModel()
 
                 RestaurantsScreen(
                     state = viewModel.state.value,

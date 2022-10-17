@@ -6,4 +6,7 @@ import androidx.room.*
 interface QuickPresetsDao {
     @Query("SELECT * FROM quickpresets")
     suspend fun getAll(): List<QuickPreset>
+
+    @Insert
+    suspend fun add(quickPreset: QuickPreset)
 }

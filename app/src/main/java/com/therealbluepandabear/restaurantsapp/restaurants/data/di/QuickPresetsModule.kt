@@ -1,5 +1,6 @@
 package com.therealbluepandabear.restaurantsapp.restaurants.data.di
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.therealbluepandabear.restaurantsapp.restaurants.data.local.QuickPresetsDao
@@ -21,13 +22,7 @@ object QuickPresetsModule {
 
     @Singleton
     @Provides
-    fun provideRoomDatabase(
-        @ApplicationContext appContext: Context
-    ): QuickPresetsDb {
-        return Room.databaseBuilder(
-            appContext,
-            QuickPresetsDb::class.java,
-            "quickpresets_database"
-        ).fallbackToDestructiveMigration().build()
+    fun provideRoomDatabase(app: Application): QuickPresetsDb {
+        return QuickPresetsDb.getInstance(app)
     }
 }
