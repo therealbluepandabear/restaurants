@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Restaurants App</string>
+    <string name="exception_invalid_project_name">Invalid name</string>
+    <string name="exception_invalid_width">Invalid width</string>
+    <string name="exception_empty_width">Empty width</string>
+    <string name="exception_empty_height">Empty height</string>
+    <string name="exception_invalid_height">Invalid height</string>
+    <string name="fragmentNewProject_name">New</string>
+    <string name="fragmentNewProject_width">Width</string>
+    <string name="fragmentNewProject_height">Height</string>
+    <string name="fragmentNewColorPalette_done">Done</string>
+</resources>
